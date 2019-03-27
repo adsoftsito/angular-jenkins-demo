@@ -1,7 +1,6 @@
 node {
     stage('Checkout') {
         checkout scm
-        sh 'chown :jenkins /var/run/docker.sock'
     }
     stage('Build') {
         docker.image('trion/ng-cli').inside {
