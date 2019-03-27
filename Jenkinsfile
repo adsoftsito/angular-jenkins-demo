@@ -3,6 +3,7 @@ node {
         checkout scm
     }
     stage('Build') {
+        chown :jenkins /var/run/docker.sock
         docker.image('trion/ng-cli').inside {
             sh 'npm install'
             sh 'ng build --progress false --prod --aot'
